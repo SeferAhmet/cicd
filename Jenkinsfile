@@ -38,7 +38,7 @@ pipeline {
                  // SSH özel anahtar dosyasının izinlerini düzelt
                   sh "chmod 400 ${KEY_PEM}"
 
-                  sshagent(['387fd54f-6eb0-4134-8558-0e3569490b2c']) {
+                  sshagent(['f2d66fc8-6101-4da9-8db2-5fa4a150f5aa']) {
                    // SSH ile EC2'ye bağlanarak docker-compose.yml dosyasını kopyala
                       sh "scp -i ${KEY_PEM} -o StrictHostKeyChecking=no requirements.txt ec2-user@${EC2_PUBLIC_IP}:/home/ec2-user/requirements.txt"
                       sh "scp -i ${KEY_PEM} -o StrictHostKeyChecking=no app.py ec2-user@${EC2_PUBLIC_IP}:/home/ec2-user/app.py"
