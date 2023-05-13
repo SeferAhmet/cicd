@@ -9,7 +9,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Git repo'dan kodu çek
-             git branch: 'main', url: 'https://github.com/SeferAhmet/test.git'
+             sh 'echo "repodan kodlar cekiliyor"'
+             git branch: 'main', url: 'https://github.com/SeferAhmet/cicd.git'
             }
         }
         stage('Terraform Init and Apply') {
